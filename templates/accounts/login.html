@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+{% include 'base/header.html' %}
+
+<body class="app flex-row align-items-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card-group">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <h1>Login</h1>
+                            <p class="text-muted">Sign In to your account</p>
+                            {% include 'partials/_alerts.html' %}
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                {% for field in forms %}
+                                    <div class="input-group mb-3">
+                                        {{ field }}
+                                        <div class="input-group-prepend py-2 border px-2 bg-light">
+                                            <span class="input-group-text">
+                                                <i class="{% if forloop.counter == 1 %}icon-user{% else %}icon-key{% endif %}"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <input type="submit" class="btn btn-primary px-4" value="Login">
+                                    </div>
+                                    <div class="col-6 text-right">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+                        <div class="card-body text-center">
+                            <div>
+                                <h2>Tennis Center Registration System</h2>
+                                <p>Welcome to the Tennis Center Registration System, your gateway to a world of tennis excellence. Our platform serves as the central hub for all things tennis-related, providing players, coaches, and administrators with intuitive tools to streamline registration processes, manage memberships, and coordinate tennis activities. Whether you're a seasoned player or just getting started, our system caters to players of all ages and skill levels, fostering a dynamic environment where passion for the sport thrives.</p>
+                                <img src="/media/photos/TennisCenter_cs50.jpeg" alt="Tennis Center" class="img-fluid">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'base/js.html' %}
+
+</body>
+
+</html>
+
